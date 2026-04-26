@@ -96,3 +96,7 @@ jobs:
         aws eks update-kubeconfig --name movie-picture-cluster --region us-east-1
         kustomize edit set image backend=625740840240.dkr.ecr.us-east-1.amazonaws.com/$REPO_NAME:$IMAGE_TAG
         kustomize build | kubectl apply -f -
+
+    - name: Print Application URLs
+      run: |
+        kubectl get svc -A
