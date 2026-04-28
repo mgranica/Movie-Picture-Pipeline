@@ -95,7 +95,7 @@ jobs:
 
     - name: Configure Kubeconfig
       run:
-       aws eks update-kubeconfig --name movie-picture-cluster --region us-east-1
+       aws eks update-kubeconfig --name curious-blues-ant --region us-east-1
 
 
     - name: Deploy Docker Image to Amazon EKS
