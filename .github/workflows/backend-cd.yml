@@ -93,7 +93,7 @@ jobs:
         IMAGE_TAG: latest
         REPO_NAME: backend
       run: |
-        aws eks update-kubeconfig --name curious-blues-ant --region us-east-1
+        aws eks update-kubeconfig --name cluster --region us-east-1
         kustomize edit set image backend=625740840240.dkr.ecr.us-east-1.amazonaws.com/$REPO_NAME:$IMAGE_TAG
         kustomize build | kubectl apply -f -
 
