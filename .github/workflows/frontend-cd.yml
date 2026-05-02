@@ -85,7 +85,7 @@ jobs:
     - name: Build and Push Docker Image
       working-directory: starter/frontend
       env:
-        IMAGE_TAG: latest
+        IMAGE_TAG: ${{ github.sha }}
         REPO_NAME: frontend
         URL: http://a3f2f4e8883c440d7afa3f10edab2674-2013483490.us-east-1.elb.amazonaws.com
       run: |
@@ -101,7 +101,7 @@ jobs:
     - name: Deploy Docker Image to Amazon EKS
       working-directory: starter/frontend/k8s
       env:
-        IMAGE_TAG: latest
+        IMAGE_TAG: ${{ github.sha }}
         REPO_NAME: frontend
       run: |
           kustomize edit set image frontend=625740840240.dkr.ecr.us-east-1.amazonaws.com/$REPO_NAME:$IMAGE_TAG
